@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "GetAllCars";
+
+    List<Day2_MVC_ITI.Car> Cars = (List<Day2_MVC_ITI.Car>)@ViewBag.carList;
+}
+
+<h2>GetAllCars</h2>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Num</th>
+                <th>Color</th>
+                <th>Model</th>
+                <th>Manufacturer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Day2_MVC_ITI.Car C in Cars)
+            {
+            <tr>
+                <td>@C.Num</td>
+                <td>@C.Color</td>
+                <td>@C.Model</td>
+                <td>@C.Manufacturer</td>
+                <td><a href="Car/GetCarById/@C.Num">Details</a></td>
+                <td><a href="Car/Update/@C.Num">Update</a></td>
+                <td><a href="Car/Delete/@C.Num">Delete</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+<br />
+<br />
+<a href="Car/Add"><button>Add a new Vehicle</button></a>
